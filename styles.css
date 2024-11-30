@@ -1,0 +1,15 @@
+html {
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
