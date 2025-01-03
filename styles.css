@@ -4,12 +4,13 @@ html {
 }
 
 .grid {
-    width: 5px;
-    height: 5px;
+    width: 15px;
+    height: 15px;
     background-color: black;
 }
 
 .container{
     display: flex;
     flex-wrap: wrap;
+    width: 74px;
 }
