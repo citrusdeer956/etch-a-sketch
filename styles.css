@@ -3,6 +3,16 @@ html {
     justify-content: center;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
+}
+
 .grid {
     width: 15px;
     height: 15px;
