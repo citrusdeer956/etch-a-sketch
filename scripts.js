@@ -1,9 +1,13 @@
 const button = document.getElementById('button');
 const container = document.querySelector(".container");
-const gridSize = 960;
+const gridSize = 700;
 let mouseDrawing = false;
 
-// create default div squares
+// Function to generate a random color
+function getRandomColor() {
+    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+}
+
 // Function to create a new grid
 function createGrid(size) {
     container.innerHTML = ''; // Clear existing grid
@@ -20,46 +24,34 @@ function createGrid(size) {
         divSquare.classList.add('grid');
         divSquare.style.width = `${squareSize}px`;
         divSquare.style.height = `${squareSize}px`;
-        divSquare.style.border = "1px solid #ddd";
         divSquare.style.backgroundColor = "white";
         
         divSquare.addEventListener('mousedown', () => {
             mouseDrawing = true;
-            divSquare.style.backgroundColor = 'black';
+            divSquare.style.backgroundColor = getRandomColor();
         });
         divSquare.addEventListener('mouseover', () => {
-            if (mouseDrawing && divSquare.style.backgroundColor === "white") {
-                divSquare.style.backgroundColor = 'black';
+            if (mouseDrawing) {
+                divSquare.style.backgroundColor = getRandomColor();
             }
         });
-
         
         container.appendChild(divSquare);
     }
     document.addEventListener('mouseup', () => {
         mouseDrawing = false;
     });
-};
+}
 
-//default grid
+// Default grid
 createGrid(16);
 
-        
-/*new grid function */
+// Button event listener to create a new grid
 button.addEventListener('click', () => {
-    newGridNum = parseInt(prompt("set a number for new grid:"));
+    newGridNum = parseInt(prompt("Set a number for new grid:"));
     if (newGridNum <= 100) {
-        alert('function works!');
-        /*clears existing grid*/
         createGrid(newGridNum);
     } else {
-        alert('number is too big!');
+        alert('Number is too big!');
     }
-})
-
-
-
-
-
-
-
+});
