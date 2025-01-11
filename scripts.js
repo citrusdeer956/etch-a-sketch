@@ -10,7 +10,7 @@ function getRandomColor() {
 
 // Function to create a new grid
 function createGrid(size) {
-    container.innerHTML = ''; // Clear existing grid
+    container.innerHTML = ''; 
     const squareSize = gridSize / size; // Calculate the size of each square
     
     container.style.display = 'grid';
@@ -43,10 +43,10 @@ function createGrid(size) {
     });
 }
 
-// Default grid
+// default grid
 createGrid(16);
 
-// Button event listener to create a new grid
+// button event listener to create a new grid
 button.addEventListener('click', () => {
     newGridNum = parseInt(prompt("Set a number for new grid:"));
     if (newGridNum <= 100) {
