@@ -11,15 +11,17 @@ function getRandomColor() {
 
 // Function to create a new grid
 function createGrid(size) {
-    container.innerHTML = ''; 
-    const squareSize = gridSize / size; // Calculate the size of each square
+    container.innerHTML = ''; // removes previous grid
+    const squareSize = gridSize / size; // calculate the size of each square
     
+    // sets up container grid display
     container.style.display = 'grid';
     container.style.gridTemplateColumns = `repeat(${size}, ${squareSize}px)`;
     container.style.gridTemplateRows = `repeat(${size}, ${squareSize}px)`;
     container.style.width = `${gridSize}px`;
     container.style.height = `${gridSize}px`;
     
+    // creates grid squares
     for (let i = 0; i < size * size; i++) {
         const divSquare = document.createElement('div');
         divSquare.classList.add('grid');
@@ -27,6 +29,7 @@ function createGrid(size) {
         divSquare.style.height = `${squareSize}px`;
         divSquare.style.backgroundColor = "white";
         
+        // adds drawing interactivity
         divSquare.addEventListener('mousedown', () => {
             mouseDrawing = true;
             divSquare.style.backgroundColor = getRandomColor();
@@ -37,6 +40,7 @@ function createGrid(size) {
             }
         });
         
+        // adds each square in the loop
         container.appendChild(divSquare);
     }
     document.addEventListener('mouseup', () => {
@@ -53,11 +57,11 @@ button.addEventListener('click', () => {
     if (newGridNum <= 100) {
         createGrid(newGridNum);
     } else {
-        alert('Number is too big!');
+        alert('Error! Invalid number.');
     }
 });
 
-
+// button event listener to clear grid drawing
 btnClear.addEventListener('click', () => {
     document.querySelectorAll('.grid').forEach(square => {
         square.style.backgroundColor = 'white';
