@@ -1,5 +1,6 @@
 const button = document.getElementById('button');
-const container = document.querySelector(".container");
+const container = document.querySelector('.container');
+const btnClear = document.getElementById('btnClear');
 const gridSize = 700;
 let mouseDrawing = false;
 
@@ -54,4 +55,11 @@ button.addEventListener('click', () => {
     } else {
         alert('Number is too big!');
     }
+});
+
+
+btnClear.addEventListener('click', () => {
+    document.querySelectorAll('.grid').forEach(square => {
+        square.style.backgroundColor = 'white';
+    });
 });
